@@ -1,0 +1,23 @@
+{
+    "name": "mesd/async-bundle",
+    "type": "symfony-bundle",
+    "description": "Mesd AsyncBundle",
+    "keywords": ["async ajax remote http"],
+    "homepage": "https://github.com/mesd/AsyncBundle",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "David Cramblettet",
+            "email": "dcramble@mesd.k12.or.us"
+        }
+    ],
+    "minimum-stability": "dev",
+    "require": {
+        "symfony/framework-bundle": "~2.1",
+        "doctrine/doctrine-bundle": "*",
+    },
+    "autoload": {
+        "psr-0": { "Mesd\\AsyncBundle": "" }
+    },
+    "target-dir": "Mesd/AsyncBundle"
+}

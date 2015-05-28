@@ -1,0 +1,21 @@
+MesdAsyncBundle:
+    path:     /
+    defaults: { _controller: "MesdAsyncBundle:Async:index" }
+
+MesdAsyncBundle_add:
+    path:     /add/{entityName}/{entityData}
+    defaults: { _controller: "MesdAsyncBundle:Async:add" }
+
+MesdAsyncBundle_custom:
+    path:     /custom/{className}/{classMethod}/{classData}{trailingSlash}{managerRequired}
+    defaults: { _controller: "MesdAsyncBundle:Async:custom", trailingSlash : "/", managerRequired: false }
+    requirements: { trailingSlash : "[/]{0,1}" }
+
+MesdAsyncBundle_search:
+    path:     /search/{entityName}/{repoMethod}/{repoMethodParams}{trailingSlash}{searchQuery}
+    defaults: { _controller: "MesdAsyncBundle:Async:search", trailingSlash : "/", searchQuery: null }
+    requirements: { trailingSlash : "[/]{0,1}" }
+
+MesdAsyncBundle_update:
+    path:     /update/{entityName}/{entityField}/{entityId}/{newValue}
+    defaults: { _controller: "MesdAsyncBundle:Async:update" }
