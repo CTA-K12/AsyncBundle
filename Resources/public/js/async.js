@@ -68,7 +68,7 @@ $(document).ready(function() {
             var column     = input.attr('data-async-ajax-column');
             var entityData = input.attr('data-async-ajax-data');
 
-            if (typeof entityData !== typeof 'undefined') {
+            if (typeof entityData !== typeof undefined) {
                 entityData = '';
             }
             else {
@@ -99,19 +99,24 @@ $(document).ready(function() {
             url: asyncUrl,
             success: function(data, status, xhr) {
                 /**
-                 * If data-async-ajax-type was of type 'add', convert input
-                 * field to 'update' type call
+                 * If data-async-ajax-type was of type 'add', and the attribute
+                 * 'data-async-ajax-convert' is set to true, convert input
+                 * field to an 'update' type call.
                  */
-                if ('add' == ajaxType) {
-                    if (data.entityId) {
-                        var entityId = data.entityId;
-                        input.attr('data-async-ajax-entity-id', String(entityId));
-                        input.attr('data-async-ajax-type', 'update');
-                        input.removeAttr('data-async-ajax-data');
+                var convert = input.attr('data-async-ajax-convert');
+                if (typeof convert !== typeof undefined && 'add' === ajaxType) {
+                    if ('true' === convert) {
+                        if (data.entityId) {
+                            var entityId = data.entityId;
+                            input.attr('data-async-ajax-entity-id', String(entityId));
+                            input.attr('data-async-ajax-type', 'update');
+                            input.removeAttr('data-async-ajax-data');
+                        }
+                        else {
+                            throw "Ajax insert/add error - please check your server side ajax url";
+                        }
                     }
-                    else {
-                        throw "Ajax insert/add error - please check your server side ajax url";
-                    }
+
                 }
             }
         });
