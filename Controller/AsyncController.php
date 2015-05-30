@@ -16,7 +16,9 @@ class AsyncController extends Controller
      * also servers as a good route for creating the base path for async
      * calls in twig templates:
      *
-     *    {{ path('MesdAsyncBundle_index') }}
+     *    <script>
+     *        var MesdAsyncPath = '{{ path('MesdAsyncBundle') }}';
+     *    </script>
      */
     public function indexAction()
     {
