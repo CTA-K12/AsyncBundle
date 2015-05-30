@@ -64,12 +64,18 @@ $(document).ready(function() {
                 MesdAsyncPath + 'update/' + entity + '/' + column + '/' + entityId + '/' + value;
         }
         else if ('add' == ajaxType ) {
-            var entity     = input.attr('data-grid-ajax-entity');
-            var column     = input.attr('data-grid-ajax-column');
-            var entityData = input.attr('data-grid-ajax-data');
+            var entity     = input.attr('data-async-ajax-entity');
+            var column     = input.attr('data-async-ajax-column');
+            var entityData = input.attr('data-async-ajax-data');
 
-            var asyncUrl =
-                MesdAsyncPath + 'add/' + entity + '/' + entityData + ';' + column + '+' + value;
+            if (typeof entityData !== typeof 'undefined') {
+                entityData = '';
+            }
+            else {
+                entityData += ';';
+            }
+
+            var asyncUrl = MesdAsyncPath + 'add/' + entity + '/' + entityData + column + '+' + value;
         }
         else if ('custom' == ajaxType ) {
             var className  = input.attr('data-async-ajax-class');
