@@ -77,7 +77,7 @@ assetic:
 
 ### Using the Async Bundle
 
-#### Step 1: Include the javascript library in template
+#### Step 1: Include the javascript library in your template
 
 Add the javascript library to any twig template (or parent template) you need
 async functionality within. Make sure to set the javascirpt variable
@@ -154,7 +154,9 @@ To enable asynchronous creation on your element, you need to do the following:
 To enable asynchronous creation on your element, with support for additional
 data to be created with the new entity, add the following attribute:
 
+```html
 data-async-ajax-data="column1Name+column1Data,column2Name+column2Data"
+```
 
 Notice that you can specify entity field/value pairs by separating the elements
 with a plus `+` sign. You can also specify multiple pairs, by separating with
@@ -178,7 +180,9 @@ them with a comma `,`.
 If you need your element to convert from creation to update mode, after the
 entity has been created, add the following attribute:
 
+```html
 data-async-ajax-convert="true"
+```
 
 The entityID will automatically be set on the element after successful
 creation.
