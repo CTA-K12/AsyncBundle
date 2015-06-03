@@ -227,3 +227,20 @@ additional data you may need. You need to do the following:
     data-async-ajax-manager="true"
 >
 ```
+
+##### Numeric Formating
+
+You can tell the async processor to treat your values as numeric if
+necessary. Add one of the following to your element:
+
+**Integer Values**
+
+```html
+    data-async-format="integer"
+```
+
+**Decimal Values**
+```html
+    data-async-format="float"
+```
+
