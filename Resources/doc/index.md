@@ -155,12 +155,12 @@ To enable asynchronous creation on your element, with support for additional
 data to be created with the new entity, add the following attribute:
 
 ```html
-data-async-ajax-data="column1Name+column1Data,column2Name+column2Data"
+data-async-ajax-data="column1Name+column1Data;column2Name+column2Data"
 ```
 
 Notice that you can specify entity field/value pairs by separating the elements
-with a plus `+` sign. You can also specify multiple pairs, by separating with
-them with a comma `,`.
+with a plus sign `+`. You can also specify multiple pairs, by separating with
+them with a semicolon `;`.
 
 
 ```html
@@ -197,5 +197,33 @@ creation.
     data-async-ajax-convert="true"
     data-async-ajax-entity="DemoTestBundle:Widget"
     data-async-ajax-column="name"
+>
+```
+
+
+##### Custom Asynchronous actions
+
+If you need something beyond the standard entity creation or update, you can
+call a custom class and method name, passing the value of the input and any
+additional data you may need. You need to do the following:
+
+1. Add the class `mesd-async` to the element
+2. Add the attribute `data-async-ajax-type` and set it to `custom`
+3. Add the attribute `data-async-ajax-class` and set it to the class name and location, using double underscores `__` as directory separators.
+4. Add the attribute `data-async-ajax-method` and set it to the class method you want to be called.
+5. Add the attribute `data-async-ajax-data` and set any additional data you would like passed to your method as an array. Use a plus sign `+` between keys and values, and a semicolon `;` between the pairs.
+6. Optionally, add the attribute `data-async-ajax-manager` and set it to true if you would like the EntityManager passed to the constructor of your class.
+
+
+```html
+<input
+    type="text"
+    class="mesd-async"
+    name="exampleAsyncCustom"
+    data-async-ajax-type="custom"
+    data-async-ajax-class="Demo__TestBundle__Model__WidgetManager"
+    data-async-ajax-method="updateWidget"
+    data-async-ajax-data="id+4;description+my widget"
+    data-async-ajax-manager="true"
 >
 ```
