@@ -171,7 +171,7 @@ them with a semicolon `;`.
     data-async-ajax-type="add"
     data-async-ajax-entity="DemoTestBundle:Widget"
     data-async-ajax-column="name"
-    data-async-ajax-data="description+new item"
+    data-async-ajax-data="description+new item;other_description+other item"
 >
 ```
 
